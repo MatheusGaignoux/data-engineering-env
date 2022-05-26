@@ -1,0 +1,17 @@
+{
+    "fields": [
+        {
+            "metadata": {},
+            "name": "hacker_id",
+            "nullable": true,
+            "type": "integer"
+        },
+        {
+            "metadata": {},
+            "name": "name",
+            "nullable": true,
+            "type": "string"
+        }
+    ],
+    "type": "struct"
+}

@@ -1,0 +1,73 @@
+version: "3"
+
+services:
+  jupyterLab:
+    image: jupyterlab
+    container_name: jupyterlab
+    ports:
+      - 8880:8888
+    volumes:
+      - ./workspace:/workspace
+      - ./mnt:/mnt
+    networks:
+      - spark_network
+
+  spark-master:
+    image: spark-master
+    container_name: spark-master
+    ports:
+      - 8080:8080
+      - 7077:7077
+    volumes:
+      - ./mnt:/mnt
+    networks:
+      - spark_network
+
+  spark-worker_1:
+    image: spark-worker
+    container_name: spark-worker_1
+    environment:
+      - SPARK_WORKER_CORES=1
+      - SPARK_WORKER_MEMORY=1024m
+    ports:
+      - 8081:8081
+    volumes:
+      - ./mnt:/mnt
+    depends_on:
+      - spark-master
+    networks:
+      - spark_network
+
+  spark-worker_2:
+    image: spark-worker
+    container_name: spark-worker_2
+    environment:
+      - SPARK_WORKER_CORES=1
+      - SPARK_WORKER_MEMORY=1024m
+    ports:
+      - 8082:8081
+    volumes:
+      - ./mnt:/mnt
+    depends_on:
+      - spark-master
+    networks:
+      - spark_network
+
+  spark-worker_3:
+    image: spark-worker
+    container_name: spark-worker_3
+    environment:
+      - SPARK_WORKER_CORES=1
+      - SPARK_WORKER_MEMORY=1024m
+    ports:
+      - 8083:8081
+    volumes:
+      - ./mnt:/mnt
+    depends_on:
+      - spark-master
+    networks:
+      - spark_network
+
+networks:
+  spark_network:
+    driver: bridge

@@ -1,0 +1,29 @@
+{
+    "fields": [
+        {
+            "metadata": {},
+            "name": "submission_date",
+            "nullable": true,
+            "type": "date"
+        },
+        {
+            "metadata": {},
+            "name": "submission_id",
+            "nullable": true,
+            "type": "integer"
+        },
+        {
+            "metadata": {},
+            "name": "hacker_id",
+            "nullable": true,
+            "type": "integer"
+        },
+        {
+            "metadata": {},
+            "name": "score",
+            "nullable": true,
+            "type": "integer"
+        }
+    ],
+    "type": "struct"
+}
