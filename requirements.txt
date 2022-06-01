@@ -1,2 +1,3 @@
 pandas==1.4.2
 delta-spark==1.0.0
+sparksql-magic

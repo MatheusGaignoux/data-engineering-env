@@ -54,9 +54,7 @@ services:
           - spark_network
   
   spark-airflow-init:
-      build: 
-          context: .
-          dockerfile: ./docker/airflow.dockerfile
+      image: custom-airflow-spark
       container_name: spark-airflow-init
       volumes:
           - ./airflow/dags:/airflow/dags
@@ -71,9 +69,7 @@ services:
           on-failure
       
   spark-airflow-webserver:
-      build: 
-          context: .
-          dockerfile: ./docker/airflow.dockerfile
+      image: custom-airflow-spark
       container_name: spark-airflow-webserver
       volumes:
           - ./airflow/dags:/airflow/dags
@@ -91,9 +87,7 @@ services:
           on-failure
       
   spark-airflow-scheduler:
-      build: 
-          context: .
-          dockerfile: ./docker/airflow.dockerfile
+      image: custom-airflow-spark
       container_name: spark-airflow-scheduler
       volumes:
           - ./airflow/dags:/airflow/dags

@@ -3,6 +3,7 @@
 SPARK_VERSION="3.1.3"
 HADOOP_VERSION="3.2"
 JUPYTERLAB_VERSION="3.4.2"
+AIRFLOW_VERSION="2.3.1"
 
 docker build \
     -f docker/cluster-base.dockerfile \
@@ -27,3 +28,9 @@ docker build \
     --build-arg spark_version="${SPARK_VERSION}" \
     -f docker/jupyterlab.dockerfile \
     -t jupyterlab .
+
+docker build \
+    --build-arg airflow_version="${AIRFLOW_VERSION}" \
+    --build-arg spark_version="${SPARK_VERSION}" \
+    -f docker/airflow.dockerfile \
+    -t custom-airflow-spark .

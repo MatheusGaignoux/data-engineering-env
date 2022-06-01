@@ -15,10 +15,12 @@ then {
 else {
     echo "First execution. Initiating the metastore DB, creating an admin user and a connection."
     airflow db init
+    
     airflow users create \
     -u spark_airflow_user \
     -p spark_airflow_pass \
     -f spark -l aiflow -r Admin -e spark_airflow@airflow.com
+
     airflow connections add "spark_cluster_conn" \
     --conn-uri "spark://spark-master:7077"
 }
