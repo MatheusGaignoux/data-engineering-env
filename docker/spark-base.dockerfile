@@ -17,5 +17,3 @@ env SPARK_MASTER_PORT 7077
 env PYSPARK_PYTHON python3
 
 workdir ${SPARK_HOME}
-
-copy jars/ jars/

@@ -1,2 +1,4 @@
-.ipynb_checkpoints/
-g_layer/
+**/.ipynb_checkpoints
+**/g_layer/15_days_of_sql_learning
+__pycache__
+postgres/data/
